@@ -1,0 +1,12 @@
+fastapi
+requests
+pydantic
+rdflib
+rdflib-jsonld
+SPARQLWrapper
+pyfiglet==0.7
+python-jose
+cachetools
+unidecode
+aiocache==0.11.1
+aioredis==1.3.1
