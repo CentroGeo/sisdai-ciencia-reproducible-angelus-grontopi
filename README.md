@@ -1,5 +1,3 @@
-![Proyecto Angelus](LogoConjunto.png "Angelus")
-
 For English, see [below](#english-version)
 
 # GrOntoPI
