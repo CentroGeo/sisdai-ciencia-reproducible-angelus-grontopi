@@ -16,7 +16,7 @@ services:
     environment:
       - LOG_LEVEL=debug
       - MAX_WORKERS=1
-      - CONFIG_PATH=/config/sample_config.json
+      - CONFIG_PATH=/config/angelus_config.json
     entrypoint: /start-reload.sh
 
   redis_cache:
@@ -26,7 +26,7 @@ services:
   fuseki:
     container_name: local_fuseki
     image: atomgraph/fuseki
-    command: "--file=/usr/share/data/leaders_20221211.ttl /ds"
+    command: "--file=/usr/share/data/tripletas_angelus_publico.n3 /ds"
     volumes:
       - ./sample_data:/usr/share/data
     ports:
