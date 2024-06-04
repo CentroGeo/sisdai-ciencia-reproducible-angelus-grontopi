@@ -1,0 +1,934 @@
+@prefix angelus: <https://ontologias.angeluscnb.mx/v1.0/> .                  
+@prefix catalogos: <https://vocabularios.angeluscnb.mx/v1.0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix personlink: <http://cedric.cnam.fr/isid/ontologies/PersonLink.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+personlink:1.3 a owl:ObjectProperty ;
+    rdfs:label "es Progenitor De"@es ;
+    rdfs:label "is parent of"@en ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+personlink:12 a owl:ObjectProperty ;
+    rdfs:label "es Ex Espos De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+personlink:13 a owl:ObjectProperty ;
+    rdfs:label "es Pareja De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+personlink:2.2.3 a owl:ObjectProperty ;
+    rdfs:label "es Prim De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+personlink:3.1 a owl:ObjectProperty ;
+    rdfs:label "es Hij De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+personlink:5 a owl:ObjectProperty ;
+    rdfs:label "es Herman De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+<http://purl.org/dc/terms/hasPart> a owl:ObjectProperty ;
+    rdfs:label "tiene Parte"@es ;
+    rdfs:domain angelus:UnidadDocumentalCompuesta ;
+    rdfs:range angelus:ApuntadorPagina .
+
+<http://purl.org/dc/terms/isPartOf> a owl:ObjectProperty ;
+    rdfs:label "pertence A"@es ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range angelus:UnidadDocumentalCompuesta .
+
+<http://purl.org/dc/terms/publisher> a owl:ObjectProperty ;
+    rdfs:label "es Emitido Por"@es ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range angelus:Organización .
+
+<http://purl.org/dc/terms/references> a rdf:Property ;
+    rdfs:label "referencia Documento"@es ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range xsd:string .
+
+<http://purl.org/dc/terms/title> a rdf:Property ;
+    rdfs:label "tiene Titulo"@es ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range xsd:string .
+
+<http://purl.org/ontology/bibo/locator> a rdf:Property ;
+    rdfs:label "foja Número"@es ;
+    rdfs:domain angelus:ApuntadorPagina ;
+    rdfs:range xsd:integer .
+
+angelus: a owl:ObjectProperty ;
+    rdfs:label ""@es ;
+    rdfs:domain angelus:PoligonoEnFoja ;
+    rdfs:range angelus:PuntoEnPoligono .
+
+angelus:apuntaAFoja a owl:ObjectProperty ;
+    rdfs:label "apunta AFoja"@es ;
+    rdfs:domain angelus:ApuntadorPagina ;
+    rdfs:range angelus:Foja .
+
+angelus:contienePoligono a owl:ObjectProperty ;
+    rdfs:label "contiene Poligono"@es ;
+    rdfs:domain angelus:Anotacion ;
+    rdfs:range angelus:PoligonoEnFoja .
+
+angelus:contienePunto a owl:ObjectProperty ;
+    rdfs:label "contiene Punto"@es ;
+    rdfs:domain angelus:PoligonoEnFoja ;
+    rdfs:range angelus:PuntoEnPoligono .
+
+angelus:contienePuntoInferior a owl:ObjectProperty ;
+    rdfs:label "contiene Punto Inferior"@es ;
+    rdfs:domain angelus:PoligonoEnFoja ;
+    rdfs:range angelus:PuntoEnPoligono .
+
+angelus:coordX a rdf:Property ;
+    rdfs:label "coord X"@es ;
+    rdfs:domain angelus:PuntoEnPoligono ;
+    rdfs:range xsd:float .
+
+angelus:coordY a rdf:Property ;
+    rdfs:label "coord Y"@es ;
+    rdfs:domain angelus:PuntoEnPoligono ;
+    rdfs:range xsd:float .
+
+angelus:esAbuelAdoptivDe a owl:ObjectProperty ;
+    rdfs:label "es Abuel Adoptiv De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esAbuelDe a owl:ObjectProperty ;
+    rdfs:label "es Abuel De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esAutorDocumento a owl:ObjectProperty ;
+    rdfs:label "es Autor Documento"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:Foja .
+
+angelus:esBuscadoPor a owl:ObjectProperty ;
+    rdfs:label "es Buscado Por"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona .
+
+angelus:esCausanteDe a owl:ObjectProperty ;
+    rdfs:label "es Causante De"@es ;
+    rdfs:domain angelus:Evento ;
+    rdfs:range angelus:Evento .
+
+angelus:esColindanteCon a owl:ObjectProperty ;
+    rdfs:label "es Colindante Con"@es ;
+    rdfs:domain angelus:Evento ;
+    rdfs:range angelus:Evento .
+
+angelus:esDenuncianteProcesoInstitucional a owl:ObjectProperty ;
+    rdfs:label "es Denunciante Proceso Institucional"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:ProcesoInstitucional .
+
+angelus:esDepositarioDocumento a owl:ObjectProperty ;
+    rdfs:label "es Depositario Documento"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:Foja .
+
+angelus:esEncontradoPor a owl:ObjectProperty ;
+    rdfs:label "es Encontrado Por"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona .
+
+angelus:esEsposDe a owl:ObjectProperty ;
+    rdfs:label "es Espos De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esEventoEncadenado a owl:ObjectProperty ;
+    rdfs:label "es Evento Encadenado"@es ;
+    rdfs:domain angelus:Evento ;
+    rdfs:range angelus:Evento .
+
+angelus:esHermanAdoptivDe a owl:ObjectProperty ;
+    rdfs:label "es Herman Adoptiv De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esHijAdoptivDe a owl:ObjectProperty ;
+    rdfs:label "es Hij Adoptiv De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esInculpadoProcesoInstitucional a owl:ObjectProperty ;
+    rdfs:label "es Inculpado Proceso Institucional"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:ProcesoInstitucional .
+
+angelus:esLaMismaQue a owl:ObjectProperty ;
+    rdfs:label "es La Misma Que"@es ;
+    rdfs:domain angelus:Anotacion,
+        angelus:Evento,
+        angelus:Foja,
+        angelus:Lugar,
+        angelus:Organización,
+        angelus:Persona,
+        angelus:ProcesoInstitucional ;
+    rdfs:range angelus:Anotacion,
+        angelus:Evento,
+        angelus:Foja,
+        angelus:Lugar,
+        angelus:Organización,
+        angelus:Persona,
+        angelus:ProcesoInstitucional .
+
+angelus:esLugarDeEvento a owl:ObjectProperty ;
+    rdfs:label "es Lugar De Evento"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:Evento .
+
+angelus:esLugarDeResguardoDocumento a owl:ObjectProperty ;
+    rdfs:label "es Lugar De Resguardo Documento"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:Foja .
+
+angelus:esLugarFinalEvento a owl:ObjectProperty ;
+    rdfs:label "es Lugar Final Evento"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:DisposiciónFinal,
+        angelus:Traslado .
+
+angelus:esLugarInicialEvento a owl:ObjectProperty ;
+    rdfs:label "es Lugar Inicial Evento"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:DisposiciónFinal,
+        angelus:Traslado .
+
+angelus:esMedioHermanDe a owl:ObjectProperty ;
+    rdfs:label "es Medio Herman De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esMiembroOrganizacion a owl:ObjectProperty ;
+    rdfs:label "es Miembro Organizacion"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Organización .
+
+angelus:esNietDe a owl:ObjectProperty ;
+    rdfs:label "es Niet De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esNueraYernoDe a owl:ObjectProperty ;
+    rdfs:label "es Nuera Yerno De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esOrdenoEvento a owl:ObjectProperty ;
+    rdfs:label "es Ordeno Evento"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:Evento .
+
+angelus:esParteDe a owl:ObjectProperty ;
+    rdfs:label "es Parte De"@es ;
+    rdfs:domain angelus:Organización ;
+    rdfs:range angelus:Organización .
+
+angelus:esParteDeLugar a owl:ObjectProperty ;
+    rdfs:label "es Parte De Lugar"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:Lugar .
+
+angelus:enEvento a owl:ObjectProperty ;
+    rdfs:label "estuvo en evento"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:Evento .
+
+angelus:esPerpetradorDeEvento a owl:ObjectProperty ;
+    rdfs:label "es Perpetrador De Evento"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:Evento .
+
+angelus:esProgenitorAdoptivDe a owl:ObjectProperty ;
+    rdfs:label "es Progenitor Adoptiv De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esPromoventeProcesoInstitucional a owl:ObjectProperty ;
+    rdfs:label "es Promovente Proceso Institucional"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:ProcesoInstitucional .
+
+angelus:esRepresentadoPor a owl:ObjectProperty ;
+    rdfs:label "es Representado Por"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona .
+
+angelus:esResponsableProcesoInstitucional a owl:ObjectProperty ;
+    rdfs:label "es Responsable Proceso Institucional"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:ProcesoInstitucional .
+
+angelus:esSedeDe a owl:ObjectProperty ;
+    rdfs:label "es Sede De"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:Organización .
+
+angelus:esSobrinDe a owl:ObjectProperty ;
+    rdfs:label "es Sobrin De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esSubeventoDe a owl:ObjectProperty ;
+    rdfs:label "es Subevento De"@es ;
+    rdfs:domain angelus:Evento ;
+    rdfs:range angelus:Evento .
+
+angelus:esSubordinadoDe a owl:ObjectProperty ;
+    rdfs:label "es Subordinado De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona .
+
+angelus:esSuegrDe a owl:ObjectProperty ;
+    rdfs:label "es Suegr De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esTestigoDe a owl:ObjectProperty ;
+    rdfs:label "es Testigo De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Evento .
+
+angelus:esTiDe a owl:ObjectProperty ;
+    rdfs:label "es Ti De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona ;
+    rdfs:subPropertyOf <http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> .
+
+angelus:esVictimaProcesoInstitucional a owl:ObjectProperty ;
+    rdfs:label "es Victima Proceso Institucional"@es ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( angelus:Persona angelus:Organización ) ] ;
+    rdfs:range angelus:ProcesoInstitucional .
+
+angelus:esVíctimaDeEvento a owl:ObjectProperty ;
+    rdfs:label "es Víctima De Evento"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Evento .
+
+angelus:estaEnLugar a owl:ObjectProperty ;
+    rdfs:label "esta En Lugar"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range angelus:Lugar .
+
+angelus:fechaAnotacion a rdf:Property ;
+    rdfs:label "fecha Anotacion"@es ;
+    rdfs:domain angelus:Anotacion ;
+    rdfs:range xsd:dateTime .
+
+angelus:finalCotaInferior a rdf:Property ;
+    rdfs:label "final Cota Inferior"@es ;
+    rdfs:domain angelus:PeriodoTemporal ;
+    rdfs:range xsd:dateTime .
+
+angelus:finalCotaSuperior a rdf:Property ;
+    rdfs:label "final Cota Superior"@es ;
+    rdfs:domain angelus:PeriodoTemporal ;
+    rdfs:range xsd:dateTime .
+
+angelus:inicioCotaInferior a rdf:Property ;
+    rdfs:label "inicio Cota Inferior"@es ;
+    rdfs:domain angelus:PeriodoTemporal ;
+    rdfs:range xsd:dateTime .
+
+angelus:inicioCotaSuperior a rdf:Property ;
+    rdfs:label "inicio Cota Superior"@es ;
+    rdfs:domain angelus:PeriodoTemporal ;
+    rdfs:range xsd:dateTime .
+
+angelus:loHizoAnotador a rdf:Property ;
+    rdfs:label "lo Hizo Anotador"@es ;
+    rdfs:domain angelus:Anotacion ;
+    rdfs:range xsd:string .
+
+angelus:perteneceA a owl:ObjectProperty ;
+    rdfs:label "pertenece A"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range angelus:Organización .
+
+angelus:seRefiereAFoja a owl:ObjectProperty ;
+    rdfs:label "se Refiere AFoja"@es ;
+    rdfs:domain angelus:Anotacion ;
+    rdfs:range angelus:Foja .
+
+angelus:tieneAlias a rdf:Property ;
+    rdfs:label "tiene Alias"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneAltura a rdf:Property ;
+    rdfs:label "tiene Altura"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:float .
+
+angelus:tieneApellidoMaterno a rdf:Property ;
+    rdfs:label "tiene Apellido Materno"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneApellidoPaterno a rdf:Property ;
+    rdfs:label "tiene Apellido Paterno"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneCaracterísticaFísica a rdf:Property ;
+    rdfs:label "tiene Característica Física"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneColor a rdf:Property ;
+    rdfs:label "tiene Color"@es ;
+    rdfs:domain angelus:PoligonoEnFoja ;
+    rdfs:range xsd:string .
+
+angelus:tieneConfianza a owl:ObjectProperty ;
+    rdfs:label "tiene Confianza"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range catalogos:Confianza .
+
+angelus:tieneDatoDeContacto a rdf:Property ;
+    rdfs:label "tiene Dato De Contacto"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneEstado a owl:ObjectProperty ;
+    rdfs:label "tiene Estado"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range catalogos:INEGIestado .
+
+angelus:tieneEstadoMuerte a owl:ObjectProperty ;
+    rdfs:label "tiene Estado Muerte"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range catalogos:INEGIestado .
+
+angelus:tieneEstadoNacimiento a owl:ObjectProperty ;
+    rdfs:label "tiene Estado Nacimiento"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range catalogos:INEGIestado .
+
+angelus:tieneEstadoTrabajo a owl:ObjectProperty ;
+    rdfs:label "tiene Estado Trabajo"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range catalogos:INEGIestado .
+
+angelus:tieneEstadoVivienda a owl:ObjectProperty ;
+    rdfs:label "tiene Estado Vivienda"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range catalogos:INEGIestado .
+
+angelus:tieneFoliacion a rdf:Property ;
+    rdfs:label "tiene Foliacion"@es ;
+    rdfs:label "has Numbering"@en ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range xsd:string ;
+    a angelus:PropiedadIrrevocable ;
+    a angelus:MultiplesValores .
+
+angelus:tieneFolio a rdf:Property ;
+    rdfs:label "tiene Folio"@es ;
+    rdfs:domain angelus:ProcesoInstitucional ;
+    rdfs:range xsd:string .
+
+angelus:tieneGenero a owl:ObjectProperty ;
+    rdfs:label "tiene Genero"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range catalogos:Genero .
+
+angelus:tieneIDOficial a rdf:Property ;
+    rdfs:label "tiene IDOficial"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneLatitud a rdf:Property ;
+    rdfs:label "tiene Latitud"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range xsd:float .
+
+angelus:tieneLocalidad a owl:ObjectProperty ;
+    rdfs:label "tiene Localidad"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range catalogos:INEGIlocalidad .
+
+angelus:tieneLongitud a rdf:Property ;
+    rdfs:label "tiene Longitud"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range xsd:float .
+
+angelus:tieneLugarMuerte a owl:ObjectProperty ;
+    rdfs:label "tiene Lugar Muerte"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Lugar .
+
+angelus:tieneLugarNacimiento a owl:ObjectProperty ;
+    rdfs:label "tiene Lugar Nacimiento"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Lugar .
+
+angelus:tieneLugarTrabajo a owl:ObjectProperty ;
+    rdfs:label "tiene Lugar Trabajo"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Lugar .
+
+angelus:tieneLugarVivienda a owl:ObjectProperty ;
+    rdfs:label "tiene Lugar Vivienda"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Lugar .
+
+angelus:tieneMetodoInferencia a owl:ObjectProperty ;
+    rdfs:label "tiene Metodo Inferencia"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range catalogos:MetodoInferencia .
+
+angelus:tieneMuestraGenetica a rdf:Property ;
+    rdfs:label "tiene Muestra Genetica"@es ;
+    rdfs:domain angelus:Persona , angelus:Familiar  ;
+    rdfs:range xsd:string .
+
+angelus:tieneMunicipio a owl:ObjectProperty ;
+    rdfs:label "tiene Municipio"@es ;
+    rdfs:domain angelus:Lugar ;
+    rdfs:range catalogos:INEGImunicipio .
+
+angelus:tieneNombre a rdf:Property ;
+    rdfs:label "tiene Nombre"@es ;
+    rdfs:domain angelus:ThingsAngelus , angelus:Familiar ;
+    rdfs:range xsd:string .
+
+angelus:tieneNombreAlternativo a rdf:Property ;
+    rdfs:label "tiene Nombre Alternativo"@es ;
+    rdfs:domain angelus:ThingsAngelus , angelus:VíctimaDirecta ;
+    rdfs:range xsd:string .
+
+angelus:tieneNombresPropios a rdf:Property ;
+    rdfs:label "tiene Nombres Propios"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneObservaciones a rdf:Property ;
+    rdfs:label "tiene Observaciones"@es ;
+    rdfs:domain angelus:ThingsAngelus,
+        angelus:ThingsReality ;
+    rdfs:range xsd:string .
+
+angelus:tieneOcupacion a rdf:Property ;
+    rdfs:label "tiene Ocupacion"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tieneOrigenDeAnotación a owl:ObjectProperty ;
+    rdfs:label "tiene Origen De Anotación"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range angelus:Anotacion .
+
+angelus:tienePeso a rdf:Property ;
+    rdfs:label "tiene Peso"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:float .
+
+angelus:tienePuesto a rdf:Property ;
+    rdfs:label "tiene Puesto"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range xsd:string .
+
+angelus:tienePunto a rdf:Property ;
+    rdfs:label "tiene Punto"@es ;
+    rdfs:domain angelus:PoligonoEnFoja ;
+    rdfs:range xsd:string .
+
+angelus:tieneSellos a owl:ObjectProperty ;
+    rdfs:label "tiene Sellos"@es ;
+    rdfs:domain angelus:Foja ;
+    rdfs:range angelus:Organización .
+
+angelus:tieneSoporteDocumental a owl:ObjectProperty ;
+    rdfs:label "tiene Soporte Documental"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range angelus:Foja .
+
+angelus:tienenSiglas a rdf:Property ;
+    rdfs:label "tienen Siglas"@es ;
+    rdfs:domain angelus:ThingsAngelus ;
+    rdfs:range xsd:string .
+
+angelus:ArchivoMultipagina a owl:Class ;
+    rdfs:label "Archivo Multipagina"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Archivo Multipagina"@es .
+
+angelus:Asesinato a owl:Class ;
+    rdfs:label "Asesinato"@es ;
+    rdfs:label "Murder"@en ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Asesinato"@es .
+
+angelus:Autor a owl:Class ;
+    rdfs:label "Autor"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Autor"@es .
+
+angelus:Buscador a owl:Class ;
+    rdfs:label "Buscador"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Buscador"@es .
+
+angelus:Captura a owl:Class ;
+    rdfs:label "Captura"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Captura"@es .
+
+angelus:Cautiverio a owl:Class ;
+    rdfs:label "Cautiverio"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Cautiverio"@es .
+
+angelus:ConjuntoDeArchivosMultipagina a owl:Class ;
+    rdfs:label "Conjunto De Archivos Multipagina"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Conjunto De Archivos Multipagina"@es .
+
+angelus:Familiar a owl:Class ;
+    rdfs:label "Familiar"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Familiar"@es .
+
+angelus:Incomunicación a owl:Class ;
+    rdfs:label "Incomunicación"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Incomunicación"@es .
+
+angelus:Perpetrador a owl:Class ;
+    rdfs:label "Perpetrador"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Perpetrador"@es .
+
+angelus:PersonaAnónima a owl:Class ;
+    rdfs:label "Persona Anónima"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Persona Anónima"@es .
+
+angelus:PersonaCompuesta a owl:Class ;
+    rdfs:label "Persona Compuesta"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Persona Compuesta"@es .
+
+angelus:ServidorPúblico a owl:Class ;
+    rdfs:label "Servidor Público"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Servidor Público"@es .
+
+angelus:Testigo a owl:Class ;
+    rdfs:label "Testigo"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Testigo"@es .
+
+angelus:Tortura a owl:Class ;
+    rdfs:label "Tortura"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Tortura"@es .
+
+angelus:VíctimaDirecta a owl:Class ;
+    rdfs:label "Víctima Directa"@es ;
+    rdfs:subClassOf angelus:Persona ;
+    skos:broader angelus:Persona ;
+    skos:prefLabel "Víctima Directa"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Confianza/Negativa> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Negativa"@es ;
+    rdfs:subClassOf catalogos:Confianza ;
+    skos:broader catalogos:Confianza ;
+    skos:prefLabel "Negativa"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Confianza/Neutra> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Neutra"@es ;
+    rdfs:subClassOf catalogos:Confianza ;
+    skos:broader catalogos:Confianza ;
+    skos:prefLabel "Neutra"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Confianza/Positiva> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Positiva"@es ;
+    rdfs:subClassOf catalogos:Confianza ;
+    skos:broader catalogos:Confianza ;
+    skos:prefLabel "Positiva"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Genero/Hombre> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Hombre"@es ;
+    rdfs:subClassOf catalogos:Genero ;
+    skos:broader catalogos:Genero ;
+    skos:prefLabel "Hombre"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Genero/Mujer> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Mujer"@es ;
+    rdfs:subClassOf catalogos:Genero ;
+    skos:broader catalogos:Genero ;
+    skos:prefLabel "Mujer"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/Genero/Otro> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Otro"@es ;
+    rdfs:subClassOf catalogos:Genero ;
+    skos:broader catalogos:Genero ;
+    skos:prefLabel "Otro"@es .
+
+catalogos:INEGIlocalidad a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "INEGIlocalidad"@es ;
+    owl:sameAs <catalogoInegiRDF> ;
+    skos:prefLabel "INEGIlocalidad"@es .
+
+catalogos:INEGImunicipio a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "INEGImunicipio"@es ;
+    owl:sameAs <catalogoInegiRDF> ;
+    skos:prefLabel "INEGImunicipio"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Autómático> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Autómático"@es ;
+    rdfs:subClassOf catalogos:MetodoInferencia ;
+    skos:broader catalogos:MetodoInferencia ;
+    skos:prefLabel "Autómático"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Inferido> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Inferido"@es ;
+    rdfs:subClassOf catalogos:MetodoInferencia ;
+    skos:broader catalogos:MetodoInferencia ;
+    skos:prefLabel "Inferido"@es .
+
+<https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Textual> a owl:Class,
+        skos:Concept ;
+    rdfs:label "Textual"@es ;
+    rdfs:subClassOf catalogos:MetodoInferencia ;
+    skos:broader catalogos:MetodoInferencia ;
+    skos:prefLabel "Textual"@es .
+
+angelus:DisposiciónFinal a owl:Class ;
+    rdfs:label "Disposición Final"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Disposición Final"@es .
+
+angelus:Traslado a owl:Class ;
+    rdfs:label "Traslado"@es ;
+    rdfs:subClassOf angelus:Evento ;
+    skos:broader angelus:Evento ;
+    skos:prefLabel "Traslado"@es .
+
+angelus:UnidadDocumentalCompuesta a owl:Class ;
+    rdfs:label "Unidad Documental Compuesta"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Unidad Documental Compuesta"@es .
+
+angelus:ApuntadorPagina a owl:Class ;
+    rdfs:label "Apuntador Pagina"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Apuntador Pagina"@es .
+
+angelus:PeriodoTemporal a owl:Class ;
+    rdfs:label "Periodo Temporal"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:prefLabel "Periodo Temporal"@es .
+
+catalogos:INEGIestado a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "INEGIestado"@es ;
+    owl:sameAs <catalogoInegiRDF> ;
+    skos:prefLabel "INEGIestado"@es .
+
+angelus:PuntoEnPoligono a owl:Class ;
+    rdfs:label "Punto En Poligono"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Punto En Poligono"@es .
+
+angelus:PoligonoEnFoja a owl:Class ;
+    rdfs:label "Poligono En Foja"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Poligono En Foja"@es .
+
+catalogos:Confianza a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "Confianza"@es ;
+    skos:narrower <https://vocabularios.angeluscnb.mx/v1.0/Confianza/Negativa>,
+        <https://vocabularios.angeluscnb.mx/v1.0/Confianza/Neutra>,
+        <https://vocabularios.angeluscnb.mx/v1.0/Confianza/Positiva> ;
+    skos:prefLabel "Confianza"@es .
+
+catalogos:Genero a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "Genero"@es ;
+    skos:narrower <https://vocabularios.angeluscnb.mx/v1.0/Genero/Hombre>,
+        <https://vocabularios.angeluscnb.mx/v1.0/Genero/Mujer>,
+        <https://vocabularios.angeluscnb.mx/v1.0/Genero/Otro> ;
+    skos:prefLabel "Genero"@es .
+
+catalogos:MetodoInferencia a owl:Class,
+        skos:Concept,
+        angelus:Catalogo ;
+    rdfs:label "Metodo Inferencia"@es ;
+    skos:narrower <https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Autómático>,
+        <https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Inferido>,
+        <https://vocabularios.angeluscnb.mx/v1.0/MetodoInferencia/Textual> ;
+    skos:prefLabel "Metodo Inferencia"@es .
+
+angelus:Anotacion a owl:Class ;
+    rdfs:label "Anotacion"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Anotacion"@es .
+
+angelus:ProcesoInstitucional a owl:Class ;
+    rdfs:label "Proceso Institucional"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:prefLabel "Proceso Institucional"@es .
+
+angelus:Foja a owl:Class ;
+    rdfs:label "Foja"@es ;
+    rdfs:subClassOf angelus:ThingsReality ;
+    skos:broader angelus:ThingsReality ;
+    skos:prefLabel "Foja"@es .
+
+angelus:ThingsReality a owl:Class ;
+    rdfs:label "Things Reality"@es ;
+    skos:narrower angelus:Anotacion,
+        angelus:ApuntadorPagina,
+        angelus:ArchivoMultipagina,
+        angelus:ConjuntoDeArchivosMultipagina,
+        angelus:Foja,
+        angelus:PoligonoEnFoja,
+        angelus:PuntoEnPoligono,
+        angelus:UnidadDocumentalCompuesta ;
+    skos:prefLabel "Things Reality"@es .
+
+<http://cedric.cnam.fr/~hamdif/ontologies/files/PersonLink.html> a owl:ObjectProperty ;
+    rdfs:label "es Familiar De"@es ;
+    rdfs:domain angelus:Persona ;
+    rdfs:range angelus:Persona .
+
+angelus:Organización a owl:Class ;
+    rdfs:label "Organización"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    owl:sameAs <http://xmlns.com/foaf/0.1/Organization> ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:prefLabel "Organización"@es .
+
+angelus:Lugar a owl:Class ;
+    rdfs:label "Lugar"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    owl:sameAs <http://www.geonames.org/ontology#Feature> ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:prefLabel "Lugar"@es .
+
+angelus:ThingsAngelus a owl:Class ;
+    rdfs:label "Things Angelus"@es ;
+    skos:narrower angelus:Evento,
+        angelus:Lugar,
+        angelus:Organización,
+        angelus:PeriodoTemporal,
+        angelus:Persona,
+        angelus:ProcesoInstitucional ;
+    skos:prefLabel "Things Angelus"@es .
+
+angelus:Evento a owl:Class ;
+    rdfs:label "Evento"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:narrower angelus:Asesinato,
+        angelus:Captura,
+        angelus:Cautiverio,
+        angelus:DisposiciónFinal,
+        angelus:Incomunicación,
+        angelus:Tortura,
+        angelus:Traslado ;
+    skos:prefLabel "Evento"@es .
+
+angelus:Persona a owl:Class ;
+    rdfs:label "Persona"@es ;
+    rdfs:subClassOf angelus:ThingsAngelus ;
+    owl:sameAs <http://xmlns.com/foaf/0.1/Person> ;
+    skos:broader angelus:ThingsAngelus ;
+    skos:narrower angelus:Autor,
+        angelus:Buscador,
+        angelus:Familiar,
+        angelus:Perpetrador,
+        angelus:PersonaAnónima,
+        angelus:PersonaCompuesta,
+        angelus:ServidorPúblico,
+        angelus:Testigo,
+        angelus:VíctimaDirecta ;
+    skos:prefLabel "Persona"@es .
+

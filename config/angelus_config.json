@@ -1,0 +1,36 @@
+{
+  "ontology_path": "/config/angelus_ontology.owl",
+  "sparql_endpoint": "http://fuseki:3030/ds/query",
+  "sparql_credentials": [],
+  "type_predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+  "ontonamespace": "https://ontologias.angeluscnb.mx/v1.0/",
+  "ontology_config": {
+    "reified_object_property": "MaterializedObjectProperty",
+    "reified_data_property": "MaterializedDataProperty",
+    "materialized_property_types": "PropertyType",
+    "rangeOf": "isRangeOf",
+    "domainOf": "isDomainOf",
+    "study_domain_class": "ThingsAngelus",
+    "reality_class": "ThingsReality",
+    "sameness_predicate": "esLaMismaQue",
+    "label_uris": [
+      "tieneNombre",
+      "tieneNombresPropios",
+      "tieneNombreAlternativo",
+      "tieneAlias",
+      "tieneApellidoMaterno",
+      "tieneApellidoPaterno",
+      "tieneTitulo",
+      "http://www.w3.org/2000/01/rdf-schema#label",
+      "http://www.w3.org/2004/02/skos/core#prefLabel"
+    ]
+  },
+  "openAPIExamples": {
+    "entities": [
+      "<https://entidades.angeluscnb.mx/personas/EmilioBarrientosReyes_00a5ed>",
+      "<https://entidades.angeluscnb.mx/familiares/EleazarBarrientosReyes_47748a>"
+    ],
+    "classes": ["<https://ontologias.angeluscnb.mx/v1.0/Persona>"],
+    "default_language": "es"
+  }
+}
